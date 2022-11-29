@@ -1,6 +1,7 @@
 //2022 FALL CISS 21 - Final Presentation (Hacked by USB)
 //robonxt
 //
+// Song: "SPIN ETERNALLY" by "camellia" https://www.youtube.com/watch?v=IuRwqB9NwVQ
 
 #include "Keyboard.h"
 #include "Mouse.h"
@@ -28,7 +29,7 @@ void resetMouse() {
   Keyboard.releaseAll();
   // type stuff here
   delay(1000);
-  Keyboard.println("roboUSB - Bad Mouse and Keyboard - Windows Run dialog");
+  Keyboard.println("EvilFubarinoMini: Bad Mouse and Keyboard - Windows Run dialog");
 
 
   //  // windows + r
@@ -44,7 +45,7 @@ void resetMouse() {
   //  Keyboard.releaseAll();
   //  // type stuff here
   //  delay(1000);
-  //  Keyboard.println("roboUSB - Bad Mouse and Keyboard - Windows Search");
+  //  Keyboard.println("EvilFubarinoMini: Bad Mouse and Keyboard - Windows Search");
 
   for (int i = 5; i > 0; i--)
   {
