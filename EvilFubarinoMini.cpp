@@ -1,7 +1,7 @@
-//2022 FALL CISS 21 - Final Presentation (Hacked by USB)
-//robonxt
+// 2022 FALL CISS 21 - Final Presentation (Hacked by USB)
+// robonxt
 //
-// Song: "SPIN ETERNALLY" by "camellia" https://www.youtube.com/watch?v=IuRwqB9NwVQ
+// Song: <SPIN ETERNALLY> by <camellia> https://www.youtube.com/watch?v=IuRwqB9NwVQ
 
 #include "Keyboard.h"
 #include "Mouse.h"
@@ -15,8 +15,23 @@ long counts = 0;
 int cSize = 10;
 
 
-void resetMouse() { 
+void resetMouse() {
   // windows + r
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  delay(50);
+  Keyboard.releaseAll();
+  // type notepad++ + ENTER + ENTER
+  delay(200);
+  Keyboard.print("notepad++");
+  Keyboard.press(KEY_RETURN);
+  delay(50);
+  Keyboard.press(KEY_RETURN);
+  delay(50);
+  Keyboard.releaseAll();
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press('r');
   delay(50);
@@ -26,10 +41,16 @@ void resetMouse() {
   Keyboard.print("notepad");
   Keyboard.press(KEY_RETURN);
   delay(50);
+  Keyboard.press(KEY_RETURN);
+  delay(50);
   Keyboard.releaseAll();
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  
   // type stuff here
   delay(1000);
   Keyboard.println("EvilFubarinoMini: Bad Mouse and Keyboard - Windows Run dialog");
+  Keyboard.println("// 2022 FALL CISS 21 - Final Presentation (Hacked by USB) \n// robonxt \n// \n// Song: <SPIN ETERNALLY> by <camellia> https://www.youtube.com/watch?v=IuRwqB9NwVQ");
 
 
   //  // windows + r
@@ -61,7 +82,7 @@ void resetMouse() {
   for (int i = 0; i < 100; i++)
   {
     Mouse.move(5, 5, 0);
-    delay(5);
+    delay(1);
   }
 }
 
@@ -96,12 +117,12 @@ void MoveMouse()
   // 0 - 2*PI() radians is one time around a circle
   // 0 - 6.282 radians is one time around a circle
   rad += 0.06282; // 1/100 of a circle
-  
+
   if (rad >= 6.282) {
     counts++;
     rad = 0; // reset to the start of a circle
     cSize = random(5, 20);
-    responseDelay = random(5, 15);
+    responseDelay = random(5, 12);
     Keyboard.print("SPIN ETERNALLY FOR: ");
     Keyboard.print(counts);
     Keyboard.print(" TIMES! (0x");
@@ -109,7 +130,7 @@ void MoveMouse()
     Keyboard.print('x');
     Keyboard.print(responseDelay);
     Keyboard.println("m) :D");
-    if ((counts % 15) == 0)
+    if ((counts % 10) == 0)
     {
       resetMouse();
     }
