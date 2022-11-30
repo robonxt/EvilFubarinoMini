@@ -16,64 +16,31 @@ int cSize = 10;
 
 
 void resetMouse() {
-  // windows + r
+  delay(10);
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press('r');
-  delay(50);
-  Keyboard.releaseAll();
-  // type notepad++ + ENTER + ENTER
-  delay(200);
-  Keyboard.print("notepad++");
-  Keyboard.press(KEY_RETURN);
-  delay(50);
-  Keyboard.press(KEY_RETURN);
-  delay(50);
-  Keyboard.releaseAll();
-  Keyboard.press(KEY_RETURN);
-  Keyboard.releaseAll();
-
-  Keyboard.press(KEY_LEFT_GUI);
-  Keyboard.press('r');
-  delay(50);
+  delay(100);
   Keyboard.releaseAll();
   // type notepad + ENTER
   delay(200);
   Keyboard.print("notepad");
   Keyboard.press(KEY_RETURN);
-  delay(50);
-  Keyboard.press(KEY_RETURN);
-  delay(50);
+  delay(200);
   Keyboard.releaseAll();
-  Keyboard.press(KEY_RETURN);
-  Keyboard.releaseAll();
-  
+
   // type stuff here
-  delay(1000);
-  Keyboard.println("EvilFubarinoMini: Bad Mouse and Keyboard - Windows Run dialog");
-  Keyboard.println("// 2022 FALL CISS 21 - Final Presentation (Hacked by USB) \n// robonxt \n// \n// Song: <SPIN ETERNALLY> by <camellia> https://www.youtube.com/watch?v=IuRwqB9NwVQ");
+  delay(500);
+  Keyboard.print(" ----- EvilFubarinoMini: Bad Mouse and Keyboard -----");
+  Keyboard.print(" 2022 FALL CISS 21 - Final Presentation (Hacked by USB) \n robonxt \n Song: <SPIN ETERNALLY> by <camellia> https://www.youtube.com/watch?v=IuRwqB9NwVQ \n");
 
-
-  //  // windows + r
-  //  Keyboard.press(KEY_LEFT_GUI);
-  //  delay(50);
-  //  Keyboard.releaseAll();
-  //  delay(50);
-  //
-  //  Keyboard.print("notepad");
-  //  delay(500);
-  //  Keyboard.press(KEY_RETURN);
-  //  delay(50);
-  //  Keyboard.releaseAll();
-  //  // type stuff here
-  //  delay(1000);
-  //  Keyboard.println("EvilFubarinoMini: Bad Mouse and Keyboard - Windows Search");
-
+  Keyboard.print("Mouse and Keyboard permissions lost in ");
   for (int i = 5; i > 0; i--)
   {
-    delay(1000);
-    Keyboard.print("You're going to lose mouse and keyboard control in...");
-    Keyboard.println(i);
+    delay(600 - (i*100));
+    Keyboard.print(i);
+    Keyboard.print("...");
   }
+  Keyboard.print("\n\nGET HACKED\n\n");
   for (int i = 0; i < 1000; i++)
   {
     Mouse.move(-10, -10, 0);
@@ -106,12 +73,12 @@ void MoveMouse()
   // read and scale the two axes:
   xReading = (int8_t)(sin(rad) * cSize);
   yReading = (int8_t)(cos(rad) * cSize);
-  Serial.print(xReading);
-  Serial.print(" ");
-  Serial.print(yReading);
-  Serial.print(" ");
-  Serial.print(rad, 2);
-  Serial.println();
+//  Serial.print(xReading);
+//  Serial.print(" ");
+//  Serial.print(yReading);
+//  Serial.print(" ");
+//  Serial.print(rad, 2);
+//  Serial.println();
 
   // 0 - 360 degrees is one time around a circle
   // 0 - 2*PI() radians is one time around a circle
@@ -121,15 +88,15 @@ void MoveMouse()
   if (rad >= 6.282) {
     counts++;
     rad = 0; // reset to the start of a circle
-    cSize = random(5, 20);
-    responseDelay = random(5, 12);
+    cSize = random(2, 20);
+    responseDelay = random(5, 10);
     Keyboard.print("SPIN ETERNALLY FOR: ");
     Keyboard.print(counts);
     Keyboard.print(" TIMES! (0x");
     Keyboard.print(cSize);
     Keyboard.print('x');
     Keyboard.print(responseDelay);
-    Keyboard.println("m) :D");
+    Keyboard.print("m) :D\n");
     if ((counts % 10) == 0)
     {
       resetMouse();
@@ -151,11 +118,11 @@ void loop() {
     if (digitalRead(PIN_BTN1) == LOW)
     {
       if (isRun == true) {
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 50; i++)
         {
-          Keyboard.println("HOW DARE YOU STOP MY ETERNAL SPIN!");
-          delay(5);
+          Keyboard.print("HOW DARE YOU! ");
         }
+        Keyboard.println("");
         Keyboard.releaseAll();
       }
       else
